@@ -1,9 +1,12 @@
 package com.example.webapitest.web.responses;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class UserResponse {
 
+    @SerializedName("roleId")
     public final String roleId;
     public final String username;
     public final String email;
