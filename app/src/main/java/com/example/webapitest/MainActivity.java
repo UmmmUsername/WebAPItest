@@ -20,18 +20,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences preferences = getPreferences(Activity.MODE_PRIVATE);
-        Fragment fragment;
-
-        if (preferences.contains(ACCESS_TOKEN_KEY)) {
-            fragment = MainFragment.getInstance();
-        } else {
-            fragment = AuthorizationFragment.getInstance();
-        }
-
         FragmentManager manager = getSupportFragmentManager();
 
         if (manager.getFragments().size() == 0) {
+            SharedPreferences preferences = getPreferences(Activity.MODE_PRIVATE);
+            Fragment fragment;
+
+            if (preferences.contains(ACCESS_TOKEN_KEY)) {
+                fragment = MainFragment.getInstance();
+            } else {
+                fragment = AuthorizationFragment.getInstance();
+            }
+
             navigate(manager, fragment);
         }
     }
